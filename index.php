@@ -52,7 +52,6 @@
                         $alink   = $cell->find("a");
                         foreach($alink as $r){
                             if (isset($r->attr['title']) && $temp == 1){
-                                // echo "<br/> a link: ". $r->attr['title'];
                                 $flight[] = $r->attr['title'];
                             }
                         }
@@ -89,8 +88,6 @@
                 $originalimage  = json_encode($homepage->originalimage);
                 $timestamp      = $homepage->timestamp;
                 $created        = time();
-
-                // $sql_insert = "INSERT INTO country VALUES(0, '$country_name', '$extract', '$extract_html', '$thumbnail', '$originalimage', '$timestamp', $created)";
 
                 $sql_insert = sprintf("INSERT INTO country(cate_id, country_name, extract, extract_html, thumbnail, originalimage, `timestamp`, created) VALUES(%d, '%s', '%s', '%s', '%s', '%s', '%s', %d)",
                     mysql_real_escape_string(0),
